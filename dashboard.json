@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "totalProblems": 1,
+    "lastUpdated": "2025-09-02T11:23:17.707Z",
+    "breakdown": {
+      "Codechef": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      },
+      "Gfg": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      },
+      "Leetcode": {
+        "total": 1,
+        "Easy": 1,
+        "Medium": 0,
+        "Hard": 0
+      },
+      "Hackerrank": {
+        "total": 0,
+        "Easy": 0,
+        "Medium": 0,
+        "Hard": 0
+      }
+    }
+  },
+  "problems": [
+    {
+      "id": "leetcode-easy-two-sum",
+      "platform": "Leetcode",
+      "difficulty": "Easy",
+      "problemName": "Two Sum",
+      "language": "cpp",
+      "files": {
+        "code": "class Solution {\npublic:\n    vector<int> twoSum(vector<int> &nums, int target) {\n        unordered_map<int, int> hash;\n        for (int i = 0; i < nums.size(); i++) {\n            hash[nums[i]] = i;\n        }\n        for (int i = 0; i < nums.size(); i++) {\n            int complement = target - nums[i];\n            if (hash.find(complement) != hash.end() && hash[complement] != i) {\n                return {i, hash[complement]};\n            }\n        }\n        // If no valid pair is found, return an empty vector\n        return {};\n    }\n};",
+        "readme": "ArrayHashTable\n\nGiven an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n \nExample 1:\n\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0, 1].\n\n\nExample 2:\n\nInput: nums = [3,2,4], target = 6\nOutput: [1,2]\n\n\nExample 3:\n\nInput: nums = [3,3], target = 6\nOutput: [0,1]\n\n\n \nConstraints:\n\n\n\t2 <= nums.length <= 104\n\t-109 <= nums[i] <= 109\n\t-109 <= target <= 109\n\tOnly one valid answer exists.\n\n\n \nFollow-up: Can you come up with an algorithm that is less than O(n2) time complexity?",
+        "notes": "Two Sum\n\n          - Summary: This algorithm utilizes an unordered map (hash table) to efficiently find pairs of numbers that sum to a target value.  It first populates the hash table with each number in the input array and its index. Then, it iterates through the array again; for each number, it checks if the complement (target - number) exists in the hash table. If the complement is found and its index differs from the current number's index, it returns the indices of the pair. Otherwise, it continues until a pair is found or the array is exhausted.\n\n          - Time Complexity: O(n) because the algorithm involves two iterations through the input array of size n. Hash table operations (insertion and lookup) take constant time on average.\n          - Space Complexity: O(n) because the space used by the unordered map is proportional to the number of elements in the input array."
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": true,
+      "lastUpdated": "2025-09-02T11:22:59.000Z"
+    }
+  ]
+}
