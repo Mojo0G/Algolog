@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProblems": 1,
-    "lastUpdated": "2025-09-02T11:23:17.707Z",
+    "totalProblems": 2,
+    "lastUpdated": "2025-09-02T11:35:55.107Z",
     "breakdown": {
       "Codechef": {
         "total": 0,
@@ -16,10 +16,10 @@
         "Hard": 0
       },
       "Leetcode": {
-        "total": 1,
+        "total": 2,
         "Easy": 1,
         "Medium": 0,
-        "Hard": 0
+        "Hard": 1
       },
       "Hackerrank": {
         "total": 0,
@@ -45,6 +45,22 @@
       "hasReadme": true,
       "hasNotes": true,
       "lastUpdated": "2025-09-02T11:22:59.000Z"
+    },
+    {
+      "id": "leetcode-hard-median-of-two-sorted-arrays",
+      "platform": "Leetcode",
+      "difficulty": "Hard",
+      "problemName": "Median of Two Sorted Arrays",
+      "language": "cpp",
+      "files": {
+        "code": "class Solution {\npublic:\n    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n        // Get the sizes of both input arrays.\n        int n = nums1.size();\n        int m = nums2.size();\n\n        // Merge the arrays into a single sorted array.\n        vector<int> merged;\n        for (int i = 0; i < n; i++) {\n            merged.push_back(nums1[i]);\n        }\n        for (int i = 0; i < m; i++) {\n            merged.push_back(nums2[i]);\n        }\n\n        // Sort the merged array.\n        sort(merged.begin(), merged.end());\n\n        // Calculate the total number of elements in the merged array.\n        int total = merged.size();\n\n        if (total % 2 == 1) {\n            // If the total number of elements is odd, return the middle element as the median.\n            return static_cast<double>(merged[total / 2]);\n        } else {\n            // If the total number of elements is even, calculate the average of the two middle elements as the median.\n            int middle1 = merged[total / 2 - 1];\n            int middle2 = merged[total / 2];\n            return (static_cast<double>(middle1) + static_cast<double>(middle2)) / 2.0;\n        }\n    }\n};",
+        "readme": "ArrayBinarySearchDivideandConquer\n\nGiven two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.\n\nThe overall run time complexity should be O(log (m+n)).\n\n \nExample 1:\n\nInput: nums1 = [1,3], nums2 = [2]\nOutput: 2.00000\nExplanation: merged array = [1,2,3] and median is 2.\n\n\nExample 2:\n\nInput: nums1 = [1,2], nums2 = [3,4]\nOutput: 2.50000\nExplanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.\n\n\n \nConstraints:\n\n\n\tnums1.length == m\n\tnums2.length == n\n\t0 <= m <= 1000\n\t0 <= n <= 1000\n\t1 <= m + n <= 2000\n\t-106 <= nums1[i], nums2[i] <= 106",
+        "notes": "Median of Two Sorted Arrays\n\n          - Summary: The code uses vectors (dynamic arrays) to store and manipulate input and merged arrays. It first merges two sorted input vectors into a single vector. Then, it sorts the merged vector and determines the median based on whether the total number of elements is even or odd. If odd, the middle element is the median; if even, the average of the two middle elements is the median.\n\n          - Time Complexity: O(m+n+k log k), where m and n are the lengths of the input arrays and k = m+n. The merging of arrays takes O(m+n), sorting takes O(k log k), and other operations are O(1).  The dominant factor is the sorting step. If the input arrays are already sorted, the merging step would be O(m+n), and we can avoid the sort, resulting in overall O(m+n).\n          - Space Complexity: O(m+n), as a new vector of size m+n is created to store the merged array.  The space used is linear with respect to the total input size."
+      },
+      "hasCode": true,
+      "hasReadme": true,
+      "hasNotes": true,
+      "lastUpdated": "2025-09-02T11:35:40.000Z"
     }
   ]
 }
